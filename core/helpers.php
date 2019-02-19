@@ -1,6 +1,6 @@
 <?php
 
-function ziggeojmrm_get_template($type = 'recorder') {
+function ziggeojobmanager_get_template($type = 'recorder') {
 	$template_used = false;
 
 

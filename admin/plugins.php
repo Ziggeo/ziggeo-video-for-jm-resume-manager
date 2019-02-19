@@ -7,11 +7,11 @@ defined('ABSPATH') or die();
 //WP Dashboad > Plugins (list)
 
 //For a link to settings in plugins screen
-add_filter('plugin_action_links_' . plugin_basename(__FILE__), function($links) {
-	//$links[] = '<a href="' . esc_url( get_admin_url(null, 'options-general.php?page=ziggeojmrm') ) . '">' .
-	//			_x('Settings', '"Settings" link on the Plugins page', 'ziggeojmrm') . '</a>';
+add_filter('plugin_action_links_ziggeo-video-for-job-manager/ziggeo-video-for-job-manager.php', function($links) {
+	$links[] = '<a href="' . esc_url( get_admin_url(null, 'admin.php?page=ziggeojobmanager') ) . '">' .
+				_x('Settings', '"Settings" link on the Plugins page', 'ziggeojobmanager') . '</a>';
 	$links[] = '<a href="mailto:support@ziggeo.com">'.
-				_x('Support', '"Support" link on the Plugins page', 'ziggeojmrm') . '</a>';
+				_x('Support', '"Support" link on the Plugins page', 'ziggeojobmanager') . '</a>';
 	return $links;
 });
 

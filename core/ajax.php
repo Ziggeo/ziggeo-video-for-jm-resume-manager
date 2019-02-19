@@ -6,7 +6,7 @@ defined('ABSPATH') or die();
 //We hook into the Ziggeo AJAX call
 add_filter('ziggeo_ajax_call', function($result, $operation) {
 
-	if($operation === 'ziggeojmrm-get-template') {
+	if($operation === 'ziggeojobmanager-get-template') {
 
 		$type = ''; //If it is not a good call we just return empty string
 
@@ -15,7 +15,7 @@ add_filter('ziggeo_ajax_call', function($result, $operation) {
 		}
 
 		//return the template that is set to be used by plugins, or the one defined in the settings
-		return ziggeojmrm_get_template($type);
+		return ziggeojobmanager_get_template($type);
 	}
 
 	return '';
@@ -30,9 +30,9 @@ add_filter('ziggeo_ajax_call_client', function($result, $operation) {
 	}
 
 
-	if($operation === 'ziggeojmrm-get-template') {
+	if($operation === 'ziggeojobmanager-get-template') {
 		//return the template that is set to be used by plugins, or the one defined in the settings
-		return ziggeojmrm_get_template($type);
+		return ziggeojobmanager_get_template($type);
 	}
 
 	return '';
