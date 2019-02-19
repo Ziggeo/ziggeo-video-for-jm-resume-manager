@@ -10,8 +10,8 @@
 //		1.2. plugins_loaded
 //	2. General functionality
 //		2.1. ziggeojobmanager_get_version()
-//		2.1. ziggeojobmanager_init()
-//		2.1. ziggeojobmanager_run()
+//		2.2. ziggeojobmanager_run()
+//		2.3. ziggeojobmanager_init()
 
 
 //Checking if WP is running or if this is a direct call..
@@ -131,8 +131,7 @@ defined('ABSPATH') or die();
 				}
 
 				//grab the default video player template that should be used
-				include_once(ZIGGEO_ROOT_PATH . '/templates/defaults_player.php');
-				$code = ziggeo_get_player_code('integrations');
+				$code = ziggeojobmanager_get_template('player', 'integrations');
 
 				$video_embed = '<ziggeoplayer ' . $code . ' ziggeo-source="' . $link . '"></ziggeoplayer>';
 				//anything else
@@ -141,8 +140,12 @@ defined('ABSPATH') or die();
 			return $video_embed;
 		}, 10, 2);
 
-		//the above might no longer be needed...
-		add_filter('the_candidate_video', 'ziggeojobmanager_play_on_resume');
+
+		//Add support for Resume Manager if it is present //@here - possibly also add an option to turn on / off
+		if(defined('RESUME_MANAGER_VERSION')) {
+			include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'extend/resume-manager.php');
+		}
 	}
+
 
 ?>

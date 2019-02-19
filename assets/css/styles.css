@@ -2,32 +2,39 @@
 ************/
 
 #ziggeojobmanager_recorder, #zigggeojobmanager_uploader {
-    width: calc( 50% - 4px - 2px);
-    margin: 2px;
-    padding: 10px;
-    text-align: center;
-    box-sizing: border-box;
-    display: inline-block;
+	width: calc( 50% - 4px - 2px);
+	margin: 2px;
+	padding: 10px;
+	text-align: center;
+	box-sizing: border-box;
+	display: inline-block;
 }
 
-/* Show text hide icons *//*
-.ziggeojobmanager_button .ba-videorecorder-chooser-icon-container {
-    display: none;
-}*/
+#ziggeojobmanager_recorder.wide, #zigggeojobmanager_uploader.wide {
+	width: 100%;
+}
 
-/* show icons hide text *//*
-.ziggeojobmanager_button .ba-videorecorder-chooser-icon-container + div {
-    opacity: 0;
-    position: absolute;
-    top: 4px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 4px;
-}*/
+/* Show text hide icons */
+#ziggeojobmanager_recorder.noicons .ba-videorecorder-chooser-icon-container,
+#zigggeojobmanager_uploader.noicons .ba-videorecorder-chooser-icon-container {
+	display: none;
+}
+
+/* Show icons hide text */
+#ziggeojobmanager_recorder.icons .ba-videorecorder-chooser-icon-container + div,
+#zigggeojobmanager_uploader.icons .ba-videorecorder-chooser-icon-container + div {
+	opacity: 0;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 4px;
+}
 
 .ziggeojobmanager_button .ba-videorecorder-chooser-container,
 .ziggeojobmanager_button .ba-videorecorder-container,
-.ziggeojobmanager_button video.ba-videorecorder-video {
-    background: none transparent;
+.ziggeojobmanager_button video.ba-videorecorder-video,
+.ziggeojobmanager_button video.ba-videorecorder-norecorder {
+	background: none transparent !important;
 }

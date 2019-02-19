@@ -1,76 +1,170 @@
 //
 // INDEX
-//	1. Hooks
+//	1. Job Manager
 //		1.1. jQuery on.ready
-//	2. Fields on form
-//		2.1. ziggeojobmanagerUIFormRecorder()
-//	
+//		1.2. ziggeojobmanagerUIFormRecorder()
+
+//	2. Extension: Resume Manager
+//		3.1. jQuery on.ready
+//		2.1. ziggeojobmanagerUIResumeFormInit()
+//	3. Admin
+//		3.1. jQuery on.ready
+//		3.1. ziggeojobmanagerShowVideoPreviewInit()
 
 
 
 
 /////////////////////////////////////////////////
-// 1. HOOKS
+// 1. JOB MANAGER
 /////////////////////////////////////////////////
 
 	jQuery(document).ready( function() {
-		ziggeojobmanagerUIFormRecorder();
+		ziggeojobmanagerUIFormRecorder(
+			document.querySelector('#submit-job-form #company_video'),
+			'company_video',
+			ZiggeoWP.jobmanager.show_recorder,
+			ZiggeoWP.jobmanager.show_uploader
+		);
 	});
 
+	function ziggeojobmanagerUIFormRecorder(video_field, field_id, show_recorder, show_uploader) {
 
+		if(video_field) {
 
-function ziggeojobmanagerUIFormRecorder() {
+			if(show_recorder === true) {
+				var recorder_button = document.createElement('span');
+				recorder_button.id = 'ziggeojobmanager_recorder';
 
-	var video_field = document.querySelector('#submit-job-form #company_video');
+				//Setup the class
+				recorder_button.className = 'ziggeojobmanager_button';
 
-	if(video_field) {
-		var recorder_button = document.createElement('span');
-		recorder_button.id = 'ziggeojobmanager_recorder';
-		recorder_button.className = 'ziggeojobmanager_button';
-		recorder_button.innerHTML = 'Record';
-		video_field.parentElement.appendChild(recorder_button);
+				if(show_uploader === false) {
+					recorder_button.className += ' wide';
+				}
 
-		var recorder = new ZiggeoApi.V2.Recorder({
-			element: recorder_button,
-			attrs: {
-				responsive: true,
-				allowupload: false,
-				'input-bind': 'company_video',
-				theme: "modern",
-				themecolor: "red"
+				if(ZiggeoWP.jobmanager.design === 'icons') {
+					recorder_button.className += ' icons';
+				}
+				else if(ZiggeoWP.jobmanager.design === 'buttons') {
+					recorder_button.className += ' noicons';
+				}
+
+				video_field.parentElement.appendChild(recorder_button);
+
+				var recorder = new ZiggeoApi.V2.Recorder({
+					element: recorder_button,
+					attrs: {
+						responsive: true,
+						allowupload: false,
+						theme: "modern",
+						themecolor: "red"
+					}
+				});
+
+				recorder.on('verified', function() {
+					document.getElementById(field_id).value = 'https://' + recorder.get('video_data.embed_video_url') + '.mp4';
+				});
+
+				recorder.activate();
 			}
-		});
 
-		recorder.on('verified', function() {
-			document.getElementById('company_video').value = 'https://' + recorder.get('video_data.embed_video_url') + '.mp4';
-			console.log('https://' + recorder.get('video_data.embed_video_url') + '.mp4');
-		});
+			if(show_uploader === true) {
+				var upload_button = document.createElement('span');
+				upload_button.id = 'zigggeojobmanager_uploader';
 
-		recorder.activate();
+				//Setup classes
+				upload_button.className = 'ziggeojobmanager_button';
 
-		var upload_button = document.createElement('span');
-		upload_button.id = 'zigggeojobmanager_uploader';
-		upload_button.className = 'ziggeojobmanager_button';
-		upload_button.innerHTML = 'Upload';
-		video_field.parentElement.appendChild(upload_button);
+				if(show_recorder === false) {
+					upload_button.className += ' wide';
+				}
 
-		var uploader = new ZiggeoApi.V2.Recorder({
-			element: upload_button,
-			attrs: {
-				responsive: true,
-				allowrecord: false,
-				'input-bind': 'company_video',
-				theme: "modern",
-				themecolor: "red"
+				if(ZiggeoWP.jobmanager.design === 'icons') {
+					upload_button.className += ' icons';
+				}
+				else if(ZiggeoWP.jobmanager.design === 'buttons') {
+					upload_button.className += ' noicons';
+				}
+
+				video_field.parentElement.appendChild(upload_button);
+
+				var uploader = new ZiggeoApi.V2.Recorder({
+					element: upload_button,
+					attrs: {
+						responsive: true,
+						allowrecord: false,
+						theme: "modern",
+						themecolor: "red"
+					}
+				});
+
+				uploader.on('verified', function() {
+					document.getElementById(field_id).value = 'https://' + uploader.get('video_data.embed_video_url') + '.mp4';
+				});
+
+				uploader.activate();
 			}
-		});
 
-		uploader.on('verified', function() {
-			document.getElementById('company_video').value = 'https://' + uploader.get('video_data.embed_video_url') + '.mp4';
-			console.log('https://' + uploader.get('video_data.embed_video_url') + '.mp4');
-		});
+			return true;
+		}
 
-		uploader.activate();
+		return false;
 	}
-}
 
+
+
+
+/////////////////////////////////////////////////
+// EXTENSION: RESUME MANAGER
+/////////////////////////////////////////////////
+
+	jQuery(document).ready( function() {
+		ziggeojobmanagerUIResumeFormInit();
+	});
+
+	//Resume submission form
+	function ziggeojobmanagerUIResumeFormInit(video_field) {
+
+		var video_field = document.querySelector('#submit-resume-form #candidate_video');
+
+		if(video_field) {
+
+				return ziggeojobmanagerUIFormRecorder(video_field,
+													'candidate_video',
+													ZiggeoWP.jobmanager.addons.resume_manager.show_recorder,
+													ZiggeoWP.jobmanager.addons.resume_manager.show_uploader
+				);
+		}
+
+		return false;
+	}
+
+
+
+
+/////////////////////////////////////////////////
+// 3. ADMIN
+/////////////////////////////////////////////////
+
+	jQuery(document).ready( function() {
+		ziggeojobmanagerShowVideoPreviewInit();
+	});
+
+	function ziggeojobmanagerShowVideoPreviewInit() {
+
+		var video_field = document.querySelector('#resume_data.postbox #_candidate_video');
+
+		if(video_field) {
+			var _preview = document.createElement('div');
+			_preview.id = 'ziggeojobmanager_preview';
+			_preview.className = 'button';
+			_preview.innerHTML = 'View';
+
+			_preview.addEventListener('click', function() {
+				//show a popup player
+				ziggeoShowOverlayWithPlayer(null, document.getElementById('_candidate_video').value);
+			});
+
+			video_field.parentElement.appendChild(_preview);
+		}
+	}

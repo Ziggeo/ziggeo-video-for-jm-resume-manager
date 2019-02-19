@@ -2,7 +2,7 @@
 /*
 Plugin Name: Ziggeo Video for Job Manager plugin
 Plugin URI: https://ziggeo.com
-Description: Add the Powerful Ziggeo video service to your Job Manager plugin
+Description: Add the Powerful Ziggeo video service to your Job Manager plugin. Included support for Resume Manager addon
 Author: Ziggeo
 Version: 1.0
 Author URI: https://ziggeo.com
@@ -24,16 +24,14 @@ define('ZIGGEOJOBMANAGER_VERSION', '1.0');
 //Include files
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/run.php');
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'admin/dashboard.php');
+include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'admin/validation.php');
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/ajax.php');
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/helpers.php');
+include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/header.php');
 
 add_action('plugins_loaded', function() {
 	include_once( ZIGGEOJOBMANAGER_ROOT_PATH . 'core/assets.php');
 });
-
-//Add admin pages allowing us to select which hooks it would use (which segments would parse through Ziggeo)
-//include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'admin/dashboard.php');
-//include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'admin/validation.php');
 
 
 ?>
