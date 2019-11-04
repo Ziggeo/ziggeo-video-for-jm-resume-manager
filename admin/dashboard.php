@@ -70,9 +70,9 @@ defined('ABSPATH') or die();
 								'ziggeojobmanager',
 								'ziggeojobmanager_section_e_resumem');
 
-			add_settings_field('ziggeojobmanager_submit_form_e_rm_videou_field',
-								__('Add Ziggeo uploader on Resume submission form', 'ziggeojobmanager'),
-								'ziggeojobmanager_o_submit_form_e_rm_videou_field',
+			add_settings_field('ziggeojobmanager_submit_form_e_rm_videol_field',
+								__('Hide video URL field on Resume submission form', 'ziggeojobmanager'),
+								'ziggeojobmanager_o_submit_form_e_rm_videol_field',
 								'ziggeojobmanager',
 								'ziggeojobmanager_section_e_resumem');
 	});
@@ -199,6 +199,20 @@ defined('ABSPATH') or die();
 				<input id="ziggeojobmanager_submission_form_e_rm_video_uploader" name="ziggeojobmanager[submission_form_e_rm_video_uploader]" size="50" type="checkbox" value="1"
 					<?php echo checked( 1, $options['submission_form_e_rm_video_uploader'], false ); ?> />
 				<label for="ziggeojobmanager_submission_form_e_rm_video_uploader"><?php _e('When checked your Resume Manager submission form will show upload option in job submission form', 'ziggeojobmanager'); ?></label>
+				<?php
+			}
+
+			function ziggeojobmanager_o_submit_form_e_rm_videol_field() {
+				$options = get_option('ziggeojobmanager');
+
+				if(!isset($options['submission_form_e_rm_video_link']) ) {
+					$options['submission_form_e_rm_video_link'] = '1';
+				}
+
+				?>
+				<input id="ziggeojobmanager_submission_form_e_rm_video_link" name="ziggeojobmanager[submission_form_e_rm_video_link]" size="50" type="checkbox" value="1"
+					<?php echo checked( 1, $options['submission_form_e_rm_video_link'], false ); ?> />
+				<label for="ziggeojobmanager_submission_form_e_rm_video_link"><?php _e('When checked you will hide the default video URL field on the submission form.', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 

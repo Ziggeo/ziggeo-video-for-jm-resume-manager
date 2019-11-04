@@ -13,7 +13,8 @@ add_action('ziggeo_add_to_ziggeowp_object', function() {
 		addons: {
 			resume_manager: {
 				show_recorder: <?php echo ($options['submission_form_e_rm_video_record'] != '0') ? 'true': 'false'; ?>,
-				show_uploader: <?php echo ($options['submission_form_e_rm_video_uploader'] != '0') ? 'true': 'false'; ?>
+				show_uploader: <?php echo ($options['submission_form_e_rm_video_uploader'] != '0') ? 'true': 'false'; ?>,
+				hide_link_field: <?php echo ($options['submission_form_e_rm_video_link'] != '0') ? 'true': 'false'; ?>
 			}
 		}
 	},

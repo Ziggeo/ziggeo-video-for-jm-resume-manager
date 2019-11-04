@@ -10,9 +10,9 @@ function ziggeojobmanager_get_template($type = 'recorder', $specific = 'integrat
 
 		if($code = ziggeo_get_recorder_code($specific)) {
 
-			if($template = ziggeo_p_template_params_as_object(null, $code)) {
-				$template_used = true;
-			}
+			// if($template = ziggeo_p_template_params_as_object(null, $code)) {
+			// 	$template_used = true;
+			// }
 		}
 	}
 	elseif($type === 'player') {
@@ -21,12 +21,13 @@ function ziggeojobmanager_get_template($type = 'recorder', $specific = 'integrat
 
 		if($code = ziggeo_get_player_code($specific)) {
 
-			if($template = ziggeo_p_template_params_as_object(null, $code)) {
-				$template_used = true;
-			}
+			// if($template = ziggeo_p_template_params_as_object(null, $code)) {
+			// 	$template_used = true;
+			// }
 		}
 	}
 
-	return $template;
+	//return $template;
+	return $code;
 }
 ?>

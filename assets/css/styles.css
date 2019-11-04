@@ -38,3 +38,16 @@
 .ziggeojobmanager_button video.ba-videorecorder-norecorder {
 	background: none transparent !important;
 }
+
+/* Needed to cancel the image sizing done by Job Manager styles */
+ziggeoplayer img, img.ba-videoplayer-video {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    float: none;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+}

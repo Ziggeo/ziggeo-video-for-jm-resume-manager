@@ -11,7 +11,8 @@ function ziggeojobmanager_validate($input) {
 		'design'								=> true,
 		//the Resume Manager addon
 		'submission_form_e_rm_video_record'		=> true,
-		'submission_form_e_rm_video_uploader'	=> true
+		'submission_form_e_rm_video_uploader'	=> true,
+		'submission_form_e_rm_video_link'		=> true
 	);
 
 	$options = get_option('ziggeojobmanager');

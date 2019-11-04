@@ -23,13 +23,18 @@
 			document.querySelector('#submit-job-form #company_video'),
 			'company_video',
 			ZiggeoWP.jobmanager.show_recorder,
-			ZiggeoWP.jobmanager.show_uploader
+			ZiggeoWP.jobmanager.show_uploader,
+			false
 		);
 	});
 
-	function ziggeojobmanagerUIFormRecorder(video_field, field_id, show_recorder, show_uploader) {
+	function ziggeojobmanagerUIFormRecorder(video_field, field_id, show_recorder, show_uploader, hide_link_field) {
 
 		if(video_field) {
+
+			if(hide_link_field === true) {
+				video_field.style.display = 'none';
+			}
 
 			if(show_recorder === true) {
 				var recorder_button = document.createElement('span');
@@ -132,7 +137,8 @@
 				return ziggeojobmanagerUIFormRecorder(video_field,
 													'candidate_video',
 													ZiggeoWP.jobmanager.addons.resume_manager.show_recorder,
-													ZiggeoWP.jobmanager.addons.resume_manager.show_uploader
+													ZiggeoWP.jobmanager.addons.resume_manager.show_uploader,
+													ZiggeoWP.jobmanager.addons.resume_manager.hide_link_field
 				);
 		}
 
