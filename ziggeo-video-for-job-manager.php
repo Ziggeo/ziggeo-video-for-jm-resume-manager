@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Ziggeo Video for Job Manager plugin
+Plugin Name: Ziggeo Video for Job Manager
 Plugin URI: https://ziggeo.com
 Description: Add the Powerful Ziggeo video service to your Job Manager plugin. Included support for Resume Manager addon
 Author: Ziggeo
-Version: 1.0
+Version: 1.1
 Author URI: https://ziggeo.com
 */
 
@@ -16,10 +16,10 @@ defined('ABSPATH') or die();
 define('ZIGGEOJOBMANAGER_ROOT_PATH', plugin_dir_path(__FILE__) );
 
 //Setting up the URL so that we can get/built on it later on from the plugin root
-define('ZIGGEOJOBMANAGER_ROOT_URL', plugins_url() . '/ziggeo-video-for-job-manager/' );
+define('ZIGGEOJOBMANAGER_ROOT_URL', plugins_url('', __FILE__) . '/');
 
 //plugin version - this way other plugins can get it as well and we will be updating this file for each version change as is
-define('ZIGGEOJOBMANAGER_VERSION', '1.0');
+define('ZIGGEOJOBMANAGER_VERSION', '1.1');
 
 //Include files
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/run.php');

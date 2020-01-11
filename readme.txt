@@ -1,13 +1,16 @@
-=== Ziggeo ===
+=== Ziggeo Video for Job Manager ===
 Contributors: oliverfriedmann, baned, carloscsz409
 Tags: ziggeo, video, resume manager, job manager, video resumes, video integration
 Requires at least: 3.0.1
-Tested up to: 4.7.4
+Tested up to: 5.3.2
 Stable tag: 1.1
+Requires PHP: 5.2.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-This plugin is an extension that allows you to add video to your Job Manager plugin and some of its addons by utilizing powerfull and award winningg Ziggeo service.
+This plugin is an extension that allows you to add video to your Job Manager plugin and some of its addons like Resume Manager by utilizing powerful and award winning Ziggeo service.
+
+Please note that you need to install and setup [Ziggeo plugin](https://wordpress.org/plugins/ziggeo/) first. This plugin is offered as an extension of the same. You also need [Job Manager](https://wordpress.org/plugins/wp-job-manager/) plugin.
 
 == Who is this for? ==
 
@@ -20,6 +23,12 @@ Want to be part of the video revolution?
 If any of the above was yes, you want this plugin!
 
 == Screenshots ==
+
+1. Job Manager - Submit Job [Form]
+2. Job Manager - Submit Job [Preview before submission]
+3. Job Manager - Submit Job [Listing]
+4. Job Manager's Resume Manager addon [Form]
+5. Job Manager's Resume Manager addon [Preview]
 
 
 == Installation ==
@@ -59,6 +68,8 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 
 = 1.1 =
 Resume Manager plugin, completely revamped, with support for latest versions.
+
+== Changelog ==
 
 = 1.0 =
 Initial commit
