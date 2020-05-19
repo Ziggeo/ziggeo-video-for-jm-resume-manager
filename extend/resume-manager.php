@@ -12,7 +12,7 @@ add_filter('the_candidate_video', function($link) {
 	}
 
 	//grab the default video player template that should be used
-	$code = ziggeojobmanager_get_template('player', 'integrations');
+	$code = ziggeojobmanager_get_template('video-player');
 
 	//Make sure the code is actually the HTML not the object code..
 

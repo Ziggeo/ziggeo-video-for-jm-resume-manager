@@ -131,7 +131,7 @@ defined('ABSPATH') or die();
 				}
 
 				//grab the default video player template that should be used
-				$code = ziggeojobmanager_get_template('player', 'integrations');
+				$code = ziggeojobmanager_get_template('video-player');
 
 				$video_embed = '<ziggeoplayer ' . $code . ' ziggeo-source="' . $link . '"></ziggeoplayer>';
 				//anything else

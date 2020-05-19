@@ -162,7 +162,7 @@ defined('ABSPATH') or die();
 					<option value="icons" <?php echo ($options['design'] === 'icons') ? 'selected="selected"' : '' ?> >Show Icons</option>
 					<option value="buttons" <?php echo ($options['design'] === 'buttons') ? 'selected="selected"' : '' ?> >Show buttons</option>
 				</select>
-				<label for="ziggeojobmanager_design"><?php _e('When checked your submission form will show upload option in job submission form', 'ziggeojobmanager'); ?></label>
+				<label for="ziggeojobmanager_design"><?php _e('Select the design that best matches what you want to have shown', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 

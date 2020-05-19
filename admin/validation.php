@@ -1,6 +1,7 @@
 <?php
 
-//to be added
+//Checking if WP is running or if this is a direct call..
+defined('ABSPATH') or die();
 
 //Validate options
 function ziggeojobmanager_validate($input) {

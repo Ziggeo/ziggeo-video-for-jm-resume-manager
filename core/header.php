@@ -1,5 +1,8 @@
 <?php
 
+//Checking if WP is running or if this is a direct call..
+defined('ABSPATH') or die();
+
 //We are hooking into the ZiggeoWP object and adding a property of our own within the same.
 add_action('ziggeo_add_to_ziggeowp_object', function() {
 
