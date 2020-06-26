@@ -78,15 +78,14 @@ defined('ABSPATH') or die();
 	});
 
 	add_action('admin_menu', function() {
-		add_submenu_page(
-			'ziggeo_video',						//parent slug
-			'Ziggeo Video for Job Manager',		//page title
-			'Ziggeo Video for Job Manager',		//menu title
-			'manage_options',					//min capability to view
-			'ziggeojobmanager',					//menu slug
-			'ziggeojobmanager_show_form'		//function
+		ziggeo_p_add_addon_submenu(array(
+			'page_title'	=> 'Ziggeo Video for Job Manager',	//page title
+			'menu_title'	=> 'Ziggeo Video for Job Manager',	//menu title
+			'capability'	=> 'manage_options',				//min capability to view
+			'slug'			=> 'ziggeojobmanager',				//menu slug
+			'callback'		=> 'ziggeojobmanager_show_form')	//function
 		);
-	});
+	}, 12);
 
 
 

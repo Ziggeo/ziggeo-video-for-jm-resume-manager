@@ -2,8 +2,8 @@
 Contributors: oliverfriedmann, baned, carloscsz409
 Tags: ziggeo, video, resume manager, job manager, video resumes, video integration
 Requires at least: 3.0.1
-Tested up to: 5.4.1
-Stable tag: 1.3
+Tested up to: 5.4.2
+Stable tag: 1.4
 Requires PHP: 5.2.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -66,17 +66,21 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 
 == Upgrade Notice ==
 
-= 1.3 =
-Admin settings text update
+= 1.4 =
+* Using new way of creating sub page in menu
+* Changed the way the addon info is made available supporting the Ziggeo core plugin
 
 == Changelog ==
 
+= 1.3 =
+* Admin settings text update
+
 = 1.2 =
-Added link to settings in plugins section
-Fixing the plugin in repo missing files
+* Added link to settings in plugins section
+* Fixing the plugin in repo missing files
 
 = 1.1 =
-Resume Manager plugin, completely revamped, with support for latest versions.
+* Resume Manager plugin, completely revamped, with support for latest versions.
 
 = 1.0 =
-Initial commit
+* Initial commit
