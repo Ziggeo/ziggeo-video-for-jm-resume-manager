@@ -1,5 +1,5 @@
 === Ziggeo Video for Job Manager ===
-Contributors: oliverfriedmann, baned, carloscsz409
+Contributors: oliverfriedmann, baned, carloscsz409, natashacalleia
 Tags: ziggeo, video, resume manager, job manager, video resumes, video integration
 Requires at least: 3.0.1
 Tested up to: 5.4.2
