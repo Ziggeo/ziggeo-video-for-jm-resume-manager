@@ -19,7 +19,8 @@ add_action('ziggeo_add_to_ziggeowp_object', function() {
 				show_uploader: <?php echo ($options['submission_form_e_rm_video_uploader'] != '0') ? 'true': 'false'; ?>,
 				hide_link_field: <?php echo ($options['submission_form_e_rm_video_link'] != '0') ? 'true': 'false'; ?>
 			}
-		}
+		},
+		custom_tags: "<?php echo $options['custom_tags']; ?>"
 	},
 	<?php
 });

@@ -27,7 +27,7 @@ include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'admin/dashboard.php');
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'admin/plugins.php');
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'admin/validation.php');
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/ajax.php');
-include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/helpers.php');
+include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/simplifiers.php');
 include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'core/header.php');
 
 add_action('plugins_loaded', function() {

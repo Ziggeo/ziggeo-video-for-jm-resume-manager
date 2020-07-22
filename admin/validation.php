@@ -10,6 +10,7 @@ function ziggeojobmanager_validate($input) {
 		'submission_form_video_record'			=> true,
 		'submission_form_video_uploader'		=> true,
 		'design'								=> true,
+		'custom_tags'							=> true,
 		//the Resume Manager addon
 		'submission_form_e_rm_video_record'		=> true,
 		'submission_form_e_rm_video_uploader'	=> true,

@@ -10,6 +10,8 @@
 //	3. Admin
 //		3.1. jQuery on.ready
 //		3.1. ziggeojobmanagerShowVideoPreviewInit()
+//	4. Global
+//		4.1. ziggeojobmanagerUIOnVerified()
 
 
 
@@ -67,7 +69,7 @@
 				});
 
 				recorder.on('verified', function() {
-					document.getElementById(field_id).value = 'https://' + recorder.get('video_data.embed_video_url') + '.mp4';
+					ziggeojobmanagerUIOnVerified(recorder, field_id);
 				});
 
 				recorder.activate();
@@ -104,7 +106,7 @@
 				});
 
 				uploader.on('verified', function() {
-					document.getElementById(field_id).value = 'https://' + uploader.get('video_data.embed_video_url') + '.mp4';
+					ziggeojobmanagerUIOnVerified(uploader, field_id);
 				});
 
 				uploader.activate();
@@ -172,5 +174,55 @@
 			});
 
 			video_field.parentElement.appendChild(_preview);
+		}
+	}
+
+
+
+
+/////////////////////////////////////////////////
+// 4. GLOBAL
+/////////////////////////////////////////////////
+
+	function ziggeojobmanagerUIOnVerified(embedding_obj, field_to_id) {
+
+		var field = document.getElementById(field_to_id);
+
+		//Save the token into the field
+		field.value = 'https://' + embedding_obj.get('video_data.embed_video_url') + '.mp4';
+
+		//Add additional tags to the video
+		var tags = ZiggeoWP.jobmanager.custom_tags;
+
+		if(tags) {
+
+			var _tags = [];
+			tags = tags.split(',');
+
+			for(i = 0, c = tags.length; i < c; i++) {
+				try {
+					var value = document.getElementById(tags[i]).value;
+
+					if(value.trim() !== '') {
+						_tags.push(value);
+					}
+				}
+				catch(err) {
+					console.log(err);
+				}
+			}
+
+			if(_tags.length > 0) {
+
+				if(embedding_obj.get('tags') !== '' && embedding_obj.get('tags') !== null) {
+					_tags.concat(embedding_obj.get('tags'));
+				}
+
+				//Create tags for the video
+				ZiggeoApi.Videos.update(embedding_obj.get("video"), {
+					tags: _tags
+				});
+			}
+
 		}
 	}

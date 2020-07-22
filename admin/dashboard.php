@@ -56,6 +56,12 @@ defined('ABSPATH') or die();
 								'ziggeojobmanager',
 								'ziggeojobmanager_section_core');
 
+			add_settings_field('ziggeojobmanager_custom_tags_from_fields',
+								__('Select what fields to use from form as tags.', 'ziggeojobmanager'),
+								'ziggeojobmanager_o_custom_tags',
+								'ziggeojobmanager',
+								'ziggeojobmanager_section_core');
+
 
 			//Resume Manager
 			add_settings_field('ziggeojobmanager_submit_form_e_rm_videor_field',
@@ -162,6 +168,60 @@ defined('ABSPATH') or die();
 					<option value="buttons" <?php echo ($options['design'] === 'buttons') ? 'selected="selected"' : '' ?> >Show buttons</option>
 				</select>
 				<label for="ziggeojobmanager_design"><?php _e('Select the design that best matches what you want to have shown', 'ziggeojobmanager'); ?></label>
+				<?php
+			}
+
+			function ziggeojobmanager_o_custom_tags() {
+				$options = get_option('ziggeojobmanager');
+				?>
+				<ul id="ziggeojobmanager_custom_tags_placeholder">
+					<li>
+						<label>
+							<input name="ziggeojobmanager_custom_tags"
+									type="checkbox"
+									<?php if(stripos($options['custom_tags'], 'job_title') > -1) {
+										echo 'checked="checked"';
+									} ?>
+									value="job_title">Job Title</label>
+					</li>
+					<li>
+						<label>
+						<input name="ziggeojobmanager_custom_tags"
+									type="checkbox"
+									<?php if(stripos($options['custom_tags'], 'job_location') > -1) {
+										echo 'checked="checked"';
+									} ?>
+									value="job_location">Job Location</label>
+					</li>
+					<li>
+						<label>
+							<input name="ziggeojobmanager_custom_tags"
+									type="checkbox"
+									<?php if(stripos($options['custom_tags'], 'job_type') > -1) {
+										echo 'checked="checked"';
+									} ?>
+									value="job_type">Job Type</label>
+					</li>
+					<li>
+						<label>
+							<input name="ziggeojobmanager_custom_tags"
+									type="checkbox"
+									<?php if(stripos($options['custom_tags'], 'company_name') > -1) {
+										echo 'checked="checked"';
+									} ?>
+									value="company_name">Company Name</label>
+					</li>
+					<li>
+						<label>
+							<input name="ziggeojobmanager_custom_tags"
+									type="checkbox"
+									<?php if(stripos($options['custom_tags'], 'company_twitter') > -1) {
+										echo 'checked="checked"';
+									} ?>
+									value="company_twitter">Twitter Username</label>
+					</li>
+				</ul>
+				<input id="ziggeojobmanager_custom_tags" name="ziggeojobmanager[custom_tags]" type="hidden" value="<?php echo $options['custom_tags']; ?>">
 				<?php
 			}
 

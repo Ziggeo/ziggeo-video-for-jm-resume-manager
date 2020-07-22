@@ -3,7 +3,7 @@ Contributors: oliverfriedmann, baned, carloscsz409, natashacalleia
 Tags: ziggeo, video, resume manager, job manager, video resumes, video integration
 Requires at least: 3.0.1
 Tested up to: 5.4.2
-Stable tag: 1.4
+Stable tag: 1.5
 Requires PHP: 5.2.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -66,11 +66,14 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 
 == Upgrade Notice ==
 
+= 1.5 =
+* Added support for custom tags based on different form fields.
+
+== Changelog ==
+
 = 1.4 =
 * Using new way of creating sub page in menu
 * Changed the way the addon info is made available supporting the Ziggeo core plugin
-
-== Changelog ==
 
 = 1.3 =
 * Admin settings text update
