@@ -62,6 +62,12 @@ defined('ABSPATH') or die();
 								'ziggeojobmanager',
 								'ziggeojobmanager_section_core');
 
+			// The type of data that is captured once the video is recorded
+			add_settings_field('ziggeojobmanager_captured_content',
+								__('Choose the data that is saved once video is recorded', 'ziggeojobmanager'),
+								'ziggeojobmanager_g_captured_content',
+								'ziggeojobmanager',
+								'ziggeojobmanager_section_core');
 
 			//Resume Manager
 			add_settings_field('ziggeojobmanager_submit_form_e_rm_videor_field',
@@ -222,6 +228,21 @@ defined('ABSPATH') or die();
 					</li>
 				</ul>
 				<input id="ziggeojobmanager_custom_tags" name="ziggeojobmanager[custom_tags]" type="hidden" value="<?php echo $options['custom_tags']; ?>">
+				<?php
+			}
+
+			function ziggeojobmanager_g_captured_content() {
+				$options = get_option('ziggeojobmanager');
+				$option = $options['capture_content'];
+				?>
+				<select id="ziggeojobmanager_capture_content" name="ziggeojobmanager[capture_content]">
+					<option value="embed_wp" <?php ziggeo_echo_selected($option, 'embed_wp'); ?>>WP Embed code</option>
+					<option value="embed_html" <?php ziggeo_echo_selected($option, 'embed_html'); ?>>HTML Embed code</option>
+					<option value="video_url" <?php ziggeo_echo_selected($option, 'video_url'); ?>>Video URL</option>
+					<option value="video_token" <?php ziggeo_echo_selected($option, 'video_token'); ?>>Video Token</option>
+					<option value="default" <?php ziggeo_echo_selected($option, 'default'); ?>>Default</option>
+				</select>
+				<label for="ziggeojobmanager_capture_content"><?php _e('Depending on your choice here you will change what is captured once the video is recorded'); ?></label>
 				<?php
 			}
 

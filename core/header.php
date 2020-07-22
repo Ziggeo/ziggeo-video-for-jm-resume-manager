@@ -8,6 +8,35 @@ add_action('ziggeo_add_to_ziggeowp_object', function() {
 
 	$options = get_option('ziggeojobmanager');
 
+	if($options['capture_content'] === 'embed_wp') {
+		$format = '[ziggeoplayer]{token}[/ziggeoplayer]';
+	}
+	elseif($options['capture_content'] === 'embed_html') {
+		$format = htmlentities('<ziggeoplayer ' . ziggeo_get_player_code('integrations') . ' ziggeo-video="{token}"></ziggeoplayer>');
+	}
+	elseif($options['capture_content'] === 'video_url') {
+		$format = 'https://ziggeo.io/p/{token}';
+	}
+	elseif($options['capture_content'] === 'video_token') {
+		$format = '{token}';
+	}
+	else { //default == 'https://' + embedding_obj.get('video_data.embed_video_url') + '.mp4'
+		$app_token = ziggeo_get_plugin_options('token');
+
+		if(stripos($app_token, 'r1') === 0) { //EU
+			$subdomain = 'embed-eu-west-1';
+		}
+		else { //US
+			$subdomain = 'embed';
+		}
+
+		$format = 'https://' . $subdomain . '.ziggeo.com/v1/applications/' . $app_token . '/videos/{token}/video.mp4';
+	}
+
+	//Filter to allow you to change the format yourself regardless of the setting
+	//Please place {token} where video token should be placed, everything else is up to you
+	$format = apply_filters('ziggeo_job_manager_capture_content', $format);
+
 	?>
 	jobmanager: {
 		show_recorder: <?php echo ($options['submission_form_video_record'] != '0') ? 'true': 'false'; ?>,
@@ -20,7 +49,9 @@ add_action('ziggeo_add_to_ziggeowp_object', function() {
 				hide_link_field: <?php echo ($options['submission_form_e_rm_video_link'] != '0') ? 'true': 'false'; ?>
 			}
 		},
-		custom_tags: "<?php echo $options['custom_tags']; ?>"
+		custom_tags: "<?php echo $options['custom_tags']; ?>",
+		capture_content: "<?php echo $options['capture_content']; ?>",
+		capture_format: "<?php echo $format; ?>"
 	},
 	<?php
 });
