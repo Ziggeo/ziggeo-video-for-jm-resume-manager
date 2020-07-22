@@ -133,59 +133,47 @@ defined('ABSPATH') or die();
 		}
 
 			function ziggeojobmanager_o_submit_form_videor_field() {
-				$options = get_option('ziggeojobmanager');
-
-				if(!isset($options['submission_form_video_record']) ) {
-					$options['submission_form_video_record'] = '1';
-				}
+				$option = ziggeojobmanager_get_plugin_options('submission_form_video_record');
 
 				?>
 				<input id="ziggeojobmanager_submission_form_video_record" name="ziggeojobmanager[submission_form_video_record]" size="50" type="checkbox" value="1"
-					<?php echo checked( 1, $options['submission_form_video_record'], false ); ?> />
+					<?php echo checked( 1, $option, false ); ?> />
 				<label for="ziggeojobmanager_submission_form_video_record"><?php _e('When checked your submission form will show record option in job submission form', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 
 			function ziggeojobmanager_o_submit_form_videou_field() {
-				$options = get_option('ziggeojobmanager');
-
-				if(!isset($options['submission_form_video_uploader']) ) {
-					$options['submission_form_video_uploader'] = '1';
-				}
+				$option = ziggeojobmanager_get_plugin_options('submission_form_video_uploader');
 
 				?>
 				<input id="ziggeojobmanager_submission_form_video_uploader" name="ziggeojobmanager[submission_form_video_uploader]" size="50" type="checkbox" value="1"
-					<?php echo checked( 1, $options['submission_form_video_uploader'], false ); ?> />
+					<?php echo checked( 1, $option, false ); ?> />
 				<label for="ziggeojobmanager_submission_form_video_uploader"><?php _e('When checked your submission form will show upload option in job submission form', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 
 			function ziggeojobmanager_o_design() {
-				$options = get_option('ziggeojobmanager');
-
-				if(!isset($options['design']) ) {
-					$options['design'] = 'default';
-				}
+				$option = ziggeojobmanager_get_plugin_options('design');
 
 				?>
 				<select id="ziggeojobmanager_design" name="ziggeojobmanager[design]">
-					<option value="default" <?php echo ($options['design'] === 'default') ? 'selected="selected"' : '' ?> >Default (button and icon)</option>
-					<option value="icons" <?php echo ($options['design'] === 'icons') ? 'selected="selected"' : '' ?> >Show Icons</option>
-					<option value="buttons" <?php echo ($options['design'] === 'buttons') ? 'selected="selected"' : '' ?> >Show buttons</option>
+					<option value="default" <?php echo ($option === 'default') ? 'selected="selected"' : '' ?> >Default (button and icon)</option>
+					<option value="icons" <?php echo ($option === 'icons') ? 'selected="selected"' : '' ?> >Show Icons</option>
+					<option value="buttons" <?php echo ($option === 'buttons') ? 'selected="selected"' : '' ?> >Show buttons</option>
 				</select>
 				<label for="ziggeojobmanager_design"><?php _e('Select the design that best matches what you want to have shown', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 
 			function ziggeojobmanager_o_custom_tags() {
-				$options = get_option('ziggeojobmanager');
+				$option = ziggeojobmanager_get_plugin_options('custom_tags');
 				?>
 				<ul id="ziggeojobmanager_custom_tags_placeholder">
 					<li>
 						<label>
 							<input name="ziggeojobmanager_custom_tags"
 									type="checkbox"
-									<?php if(stripos($options['custom_tags'], 'job_title') > -1) {
+									<?php if(stripos($option, 'job_title') > -1) {
 										echo 'checked="checked"';
 									} ?>
 									value="job_title">Job Title</label>
@@ -194,7 +182,7 @@ defined('ABSPATH') or die();
 						<label>
 						<input name="ziggeojobmanager_custom_tags"
 									type="checkbox"
-									<?php if(stripos($options['custom_tags'], 'job_location') > -1) {
+									<?php if(stripos($option, 'job_location') > -1) {
 										echo 'checked="checked"';
 									} ?>
 									value="job_location">Job Location</label>
@@ -203,7 +191,7 @@ defined('ABSPATH') or die();
 						<label>
 							<input name="ziggeojobmanager_custom_tags"
 									type="checkbox"
-									<?php if(stripos($options['custom_tags'], 'job_type') > -1) {
+									<?php if(stripos($option, 'job_type') > -1) {
 										echo 'checked="checked"';
 									} ?>
 									value="job_type">Job Type</label>
@@ -212,7 +200,7 @@ defined('ABSPATH') or die();
 						<label>
 							<input name="ziggeojobmanager_custom_tags"
 									type="checkbox"
-									<?php if(stripos($options['custom_tags'], 'company_name') > -1) {
+									<?php if(stripos($option, 'company_name') > -1) {
 										echo 'checked="checked"';
 									} ?>
 									value="company_name">Company Name</label>
@@ -221,19 +209,18 @@ defined('ABSPATH') or die();
 						<label>
 							<input name="ziggeojobmanager_custom_tags"
 									type="checkbox"
-									<?php if(stripos($options['custom_tags'], 'company_twitter') > -1) {
+									<?php if(stripos($option, 'company_twitter') > -1) {
 										echo 'checked="checked"';
 									} ?>
 									value="company_twitter">Twitter Username</label>
 					</li>
 				</ul>
-				<input id="ziggeojobmanager_custom_tags" name="ziggeojobmanager[custom_tags]" type="hidden" value="<?php echo $options['custom_tags']; ?>">
+				<input id="ziggeojobmanager_custom_tags" name="ziggeojobmanager[custom_tags]" type="hidden" value="<?php echo $option; ?>">
 				<?php
 			}
 
 			function ziggeojobmanager_g_captured_content() {
-				$options = get_option('ziggeojobmanager');
-				$option = $options['capture_content'];
+				$option = ziggeojobmanager_get_plugin_options('capture_content');
 				?>
 				<select id="ziggeojobmanager_capture_content" name="ziggeojobmanager[capture_content]">
 					<option value="embed_wp" <?php ziggeo_echo_selected($option, 'embed_wp'); ?>>WP Embed code</option>
@@ -255,43 +242,31 @@ defined('ABSPATH') or die();
 		}
 
 			function ziggeojobmanager_o_submit_form_e_rm_videor_field() {
-				$options = get_option('ziggeojobmanager');
-
-				if(!isset($options['submission_form_e_rm_video_record']) ) {
-					$options['submission_form_e_rm_video_record'] = '1';
-				}
+				$option = ziggeojobmanager_get_plugin_options('submission_form_e_rm_video_record');
 
 				?>
 				<input id="ziggeojobmanager_submission_form_e_rm_video_record" name="ziggeojobmanager[submission_form_e_rm_video_record]" size="50" type="checkbox" value="1"
-					<?php echo checked( 1, $options['submission_form_e_rm_video_record'], false ); ?> />
+					<?php echo checked( 1, $option, false ); ?> />
 				<label for="ziggeojobmanager_submission_form_e_rm_video_record"><?php _e('When checked your Resume Manager submission form will show record option in job submission form', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 
 			function ziggeojobmanager_o_submit_form_e_rm_videou_field() {
-				$options = get_option('ziggeojobmanager');
-
-				if(!isset($options['submission_form_e_rm_video_uploader']) ) {
-					$options['submission_form_e_rm_video_uploader'] = '1';
-				}
+				$option = ziggeojobmanager_get_plugin_options('submission_form_e_rm_video_uploader');
 
 				?>
 				<input id="ziggeojobmanager_submission_form_e_rm_video_uploader" name="ziggeojobmanager[submission_form_e_rm_video_uploader]" size="50" type="checkbox" value="1"
-					<?php echo checked( 1, $options['submission_form_e_rm_video_uploader'], false ); ?> />
+					<?php echo checked( 1, $option, false ); ?> />
 				<label for="ziggeojobmanager_submission_form_e_rm_video_uploader"><?php _e('When checked your Resume Manager submission form will show upload option in job submission form', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 
 			function ziggeojobmanager_o_submit_form_e_rm_videol_field() {
-				$options = get_option('ziggeojobmanager');
-
-				if(!isset($options['submission_form_e_rm_video_link']) ) {
-					$options['submission_form_e_rm_video_link'] = '1';
-				}
+				$option = ziggeojobmanager_get_plugin_options('submission_form_e_rm_video_link');
 
 				?>
 				<input id="ziggeojobmanager_submission_form_e_rm_video_link" name="ziggeojobmanager[submission_form_e_rm_video_link]" size="50" type="checkbox" value="1"
-					<?php echo checked( 1, $options['submission_form_e_rm_video_link'], false ); ?> />
+					<?php echo checked( 1, $option, false ); ?> />
 				<label for="ziggeojobmanager_submission_form_e_rm_video_link"><?php _e('When checked you will hide the default video URL field on the submission form.', 'ziggeojobmanager'); ?></label>
 				<?php
 			}

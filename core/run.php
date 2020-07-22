@@ -109,7 +109,7 @@ defined('ABSPATH') or die();
 	//We add all of the hooks we need
 	function ziggeojobmanager_init() {
 
-		$options = get_option('ziggeojobmanager');
+		$options = ziggeojobmanager_get_plugin_options();
 
 		//The hook for showing of the video on the front end under jobs listing
 		add_filter('the_company_video_embed', function($video_embed, $post) {

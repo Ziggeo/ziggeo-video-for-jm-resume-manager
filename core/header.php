@@ -6,7 +6,7 @@ defined('ABSPATH') or die();
 //We are hooking into the ZiggeoWP object and adding a property of our own within the same.
 add_action('ziggeo_add_to_ziggeowp_object', function() {
 
-	$options = get_option('ziggeojobmanager');
+	$options = ziggeojobmanager_get_plugin_options();
 
 	if($options['capture_content'] === 'embed_wp') {
 		$format = '[ziggeoplayer]{token}[/ziggeoplayer]';

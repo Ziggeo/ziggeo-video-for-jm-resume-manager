@@ -18,7 +18,7 @@ function ziggeojobmanager_validate($input) {
 		'submission_form_e_rm_video_link'		=> true
 	);
 
-	$options = get_option('ziggeojobmanager');
+	$options = ziggeojobmanager_get_plugin_options();
 
 	foreach($allowed_options as $option => $value) {
 

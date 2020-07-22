@@ -69,6 +69,7 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 = 1.5 =
 * Added support for custom tags based on different form fields.
 * Added the option to allow you to change the format of the data you receive. We still recommend the default unless you have some specific setup where other formats work better for you :)
+* Added better options handling
 
 == Changelog ==
 

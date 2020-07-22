@@ -33,4 +33,49 @@ function ziggeojobmanager_get_template($type = 'video-recorder') {
 	//return $template;
 	return $code;
 }
+
+function ziggeojobmanager_get_plugin_options_defaults() {
+	$defaults = array(
+		'version'								=> ZIGGEOJOBMANAGER_VERSION,
+		'submission_form_video_record'			=> '1',
+		'submission_form_video_uploader'		=> '1',
+		'design'								=> 'default',
+		'submission_form_e_rm_video_record'		=> '1',
+		'submission_form_e_rm_video_uploader'	=> '1',
+		'submission_form_e_rm_video_link'		=> '1',
+		'custom_tags'							=> '',
+		'capture_content'						=> 'default'
+	);
+
+	return $defaults;
+}
+
+// Returns all plugin settings or defaults if not existing
+function ziggeojobmanager_get_plugin_options($specific = null) {
+	$options = get_option('ziggeojobmanager');
+
+	$defaults = ziggeojobmanager_get_plugin_options_defaults();
+
+	//in case we need to get the defaults
+	if($options === false || $options === '') {
+		// the defaults need to be applied
+		$options = $defaults;
+	}
+
+	// In case we are after a specific one.
+	if($specific !== null) {
+		if(isset($options[$specific])) {
+			return $options[$specific];
+		}
+		elseif(isset($defaults[$specific])) {
+			return $defaults[$specific];
+		}
+	}
+	else {
+		return $options;
+	}
+
+	return false;
+}
+
 ?>
