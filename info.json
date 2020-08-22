@@ -14,7 +14,7 @@
 		"contributors": "oliverfriedmann, baned, carloscsz409",
 		"tags": "ziggeo, video, resume manager, job manager, video resumes, video integration",
 		"description": "This plugin is an extension that allows you to add video to your Job Manager plugin and some of its addons like Resume Manager by utilizing powerful and award winning Ziggeo service.",
-		"latest_update": "Custom Tags support and adjusting the format of video data",
+		"highlight": "Custom Tags support and adjusting the format of video data",
 		"info_url": "https://raw.githubusercontent.com/Ziggeo/ziggeo-video-for-jm-resume-manager/master/info.json",
 		"addon_url": "https://ziggeo.com/integrations/wordpress/jobmanager",
 		"docs_url": "https://ziggeo.com/docs/integrations/wordpress/job-manager-resume-manager"
