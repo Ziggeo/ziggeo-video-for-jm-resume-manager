@@ -66,12 +66,15 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 
 == Upgrade Notice ==
 
+= 1.6 =
+* Improvement: Using v2 API calls.
+
+== Changelog ==
+
 = 1.5 =
 * Added support for custom tags based on different form fields.
 * Added the option to allow you to change the format of the data you receive. We still recommend the default unless you have some specific setup where other formats work better for you :)
 * Added better options handling
-
-== Changelog ==
 
 = 1.4 =
 * Using new way of creating sub page in menu
