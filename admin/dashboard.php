@@ -90,15 +90,25 @@ defined('ABSPATH') or die();
 	});
 
 	add_action('admin_menu', function() {
-		ziggeo_p_add_addon_submenu(array(
-			'page_title'	=> 'Ziggeo Video for Job Manager',	//page title
-			'menu_title'	=> 'Ziggeo Video for Job Manager',	//menu title
-			'capability'	=> 'manage_options',				//min capability to view
-			'slug'			=> 'ziggeojobmanager',				//menu slug
-			'callback'		=> 'ziggeojobmanager_show_form')	//function
-		);
+		if(function_exists('ziggeo_p_add_addon_submenu')) {
+			ziggeo_p_add_addon_submenu(array(
+				'page_title'    => 'Ziggeo Video for Job Manager',  //page title
+				'menu_title'    => 'Ziggeo Video for Job Manager',  //menu title
+				'capability'    => 'manage_options',                //min capability to view
+				'slug'          => 'ziggeojobmanager',              //menu slug
+				'callback'      => 'ziggeojobmanager_show_form')    //function
+			);
+		}
+		else {
+			add_action( 'admin_notices', function() {
+				?>
+				<div class="error notice">
+					<p><?php _e( 'Please install <a href="https://wordpress.org/plugins/ziggeo/">Ziggeo plugin</a>. It is required for this plugin (Videowalls for Ziggeo) to work properly!', 'ziggeojobmanager' ); ?></p>
+				</div>
+				<?php
+			});
+		}
 	}, 12);
-
 
 
 
@@ -229,7 +239,7 @@ defined('ABSPATH') or die();
 					<option value="video_token" <?php ziggeo_echo_selected($option, 'video_token'); ?>>Video Token</option>
 					<option value="default" <?php ziggeo_echo_selected($option, 'default'); ?>>Default</option>
 				</select>
-				<label for="ziggeojobmanager_capture_content"><?php _e('Depending on your choice here you will change what is captured once the video is recorded'); ?></label>
+				<label for="ziggeojobmanager_capture_content"><?php _e('Depending on your choice here you will change what is captured once the video is recorded', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 
