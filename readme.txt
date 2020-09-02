@@ -69,6 +69,7 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 = 1.6 =
 * Improvement: Using v2 API calls.
 * Improvement: Added a check for submenu creation to know that we have the core plugin present, helping us avoiding errors if it is not.
+* Improvement: Added a check if core plugin is installed and available. Instead of silent continuation if it is not, it will now report that it is missing.
 
 == Changelog ==
 

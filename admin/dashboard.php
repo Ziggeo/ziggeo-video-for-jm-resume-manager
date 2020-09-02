@@ -39,54 +39,54 @@ defined('ABSPATH') or die();
 			// Option to turn on or off the option in Job Manager for the videos recorder being part of
 			// the submission form or just the standard input field
 			add_settings_field('ziggeojobmanager_submit_form_videor_field',
-								__('Add Ziggeo recorder on submission form', 'ziggeojobmanager'),
-								'ziggeojobmanager_o_submit_form_videor_field',
-								'ziggeojobmanager',
-								'ziggeojobmanager_section_core');
+			                    __('Add Ziggeo recorder on submission form', 'ziggeojobmanager'),
+			                    'ziggeojobmanager_o_submit_form_videor_field',
+			                    'ziggeojobmanager',
+			                    'ziggeojobmanager_section_core');
 
 			add_settings_field('ziggeojobmanager_submit_form_videou_field',
-								__('Add Ziggeo uploader on submission form', 'ziggeojobmanager'),
-								'ziggeojobmanager_o_submit_form_videou_field',
-								'ziggeojobmanager',
-								'ziggeojobmanager_section_core');
+			                    __('Add Ziggeo uploader on submission form', 'ziggeojobmanager'),
+				                    'ziggeojobmanager_o_submit_form_videou_field',
+			                    'ziggeojobmanager',
+			                    'ziggeojobmanager_section_core');
 
 			add_settings_field('ziggeojobmanager_design_buttons',
-								__('The design of the recorder and uploader on submission forms', 'ziggeojobmanager'),
-								'ziggeojobmanager_o_design',
-								'ziggeojobmanager',
-								'ziggeojobmanager_section_core');
+			                    __('The design of the recorder and uploader on submission forms', 'ziggeojobmanager'),
+			                    'ziggeojobmanager_o_design',
+			                    'ziggeojobmanager',
+			                    'ziggeojobmanager_section_core');
 
 			add_settings_field('ziggeojobmanager_custom_tags_from_fields',
-								__('Select what fields to use from form as tags.', 'ziggeojobmanager'),
-								'ziggeojobmanager_o_custom_tags',
-								'ziggeojobmanager',
-								'ziggeojobmanager_section_core');
+			                    __('Select what fields to use from form as tags.', 'ziggeojobmanager'),
+			                    'ziggeojobmanager_o_custom_tags',
+			                    'ziggeojobmanager',
+			                    'ziggeojobmanager_section_core');
 
 			// The type of data that is captured once the video is recorded
 			add_settings_field('ziggeojobmanager_captured_content',
-								__('Choose the data that is saved once video is recorded', 'ziggeojobmanager'),
-								'ziggeojobmanager_g_captured_content',
-								'ziggeojobmanager',
-								'ziggeojobmanager_section_core');
+			                    __('Choose the data that is saved once video is recorded', 'ziggeojobmanager'),
+			                    'ziggeojobmanager_g_captured_content',
+			                    'ziggeojobmanager',
+			                    'ziggeojobmanager_section_core');
 
 			//Resume Manager
 			add_settings_field('ziggeojobmanager_submit_form_e_rm_videor_field',
-								__('Add Ziggeo recorder on Resume submission form', 'ziggeojobmanager'),
-								'ziggeojobmanager_o_submit_form_e_rm_videor_field',
-								'ziggeojobmanager',
-								'ziggeojobmanager_section_e_resumem');
+			                    __('Add Ziggeo recorder on Resume submission form', 'ziggeojobmanager'),
+			                    'ziggeojobmanager_o_submit_form_e_rm_videor_field',
+			                    'ziggeojobmanager',
+			                    'ziggeojobmanager_section_e_resumem');
 
 			add_settings_field('ziggeojobmanager_submit_form_e_rm_videou_field',
-								__('Add Ziggeo uploader on Resume submission form', 'ziggeojobmanager'),
-								'ziggeojobmanager_o_submit_form_e_rm_videou_field',
-								'ziggeojobmanager',
-								'ziggeojobmanager_section_e_resumem');
+			                    __('Add Ziggeo uploader on Resume submission form', 'ziggeojobmanager'),
+			                    'ziggeojobmanager_o_submit_form_e_rm_videou_field',
+			                    'ziggeojobmanager',
+			                    'ziggeojobmanager_section_e_resumem');
 
 			add_settings_field('ziggeojobmanager_submit_form_e_rm_videol_field',
-								__('Hide video URL field on Resume submission form', 'ziggeojobmanager'),
-								'ziggeojobmanager_o_submit_form_e_rm_videol_field',
-								'ziggeojobmanager',
-								'ziggeojobmanager_section_e_resumem');
+			                    __('Hide video URL field on Resume submission form', 'ziggeojobmanager'),
+			                    'ziggeojobmanager_o_submit_form_e_rm_videol_field',
+			                    'ziggeojobmanager',
+			                    'ziggeojobmanager_section_e_resumem');
 	});
 
 	add_action('admin_menu', function() {
@@ -103,7 +103,7 @@ defined('ABSPATH') or die();
 			add_action( 'admin_notices', function() {
 				?>
 				<div class="error notice">
-					<p><?php _e( 'Please install <a href="https://wordpress.org/plugins/ziggeo/">Ziggeo plugin</a>. It is required for this plugin (Videowalls for Ziggeo) to work properly!', 'ziggeojobmanager' ); ?></p>
+					<p><?php _e( 'Please install <a href="https://wordpress.org/plugins/ziggeo/">Ziggeo plugin</a>. It is required for this plugin (Ziggeo Video For Job Manager) to work properly!', 'ziggeojobmanager' ); ?></p>
 				</div>
 				<?php
 			});
@@ -182,47 +182,47 @@ defined('ABSPATH') or die();
 					<li>
 						<label>
 							<input name="ziggeojobmanager_custom_tags"
-									type="checkbox"
-									<?php if(stripos($option, 'job_title') > -1) {
-										echo 'checked="checked"';
-									} ?>
-									value="job_title">Job Title</label>
+							        type="checkbox"
+							        <?php if(stripos($option, 'job_title') > -1) {
+							            echo 'checked="checked"';
+							        } ?>
+							        value="job_title">Job Title</label>
 					</li>
 					<li>
 						<label>
 						<input name="ziggeojobmanager_custom_tags"
-									type="checkbox"
-									<?php if(stripos($option, 'job_location') > -1) {
-										echo 'checked="checked"';
-									} ?>
-									value="job_location">Job Location</label>
+							        type="checkbox"
+							        <?php if(stripos($option, 'job_location') > -1) {
+							            echo 'checked="checked"';
+							        } ?>
+							        value="job_location">Job Location</label>
 					</li>
 					<li>
 						<label>
 							<input name="ziggeojobmanager_custom_tags"
-									type="checkbox"
-									<?php if(stripos($option, 'job_type') > -1) {
-										echo 'checked="checked"';
-									} ?>
-									value="job_type">Job Type</label>
+							        type="checkbox"
+							        <?php if(stripos($option, 'job_type') > -1) {
+							            echo 'checked="checked"';
+							        } ?>
+							        value="job_type">Job Type</label>
 					</li>
 					<li>
 						<label>
 							<input name="ziggeojobmanager_custom_tags"
-									type="checkbox"
-									<?php if(stripos($option, 'company_name') > -1) {
-										echo 'checked="checked"';
-									} ?>
-									value="company_name">Company Name</label>
+							        type="checkbox"
+							        <?php if(stripos($option, 'company_name') > -1) {
+							            echo 'checked="checked"';
+							        } ?>
+							        value="company_name">Company Name</label>
 					</li>
 					<li>
 						<label>
 							<input name="ziggeojobmanager_custom_tags"
-									type="checkbox"
-									<?php if(stripos($option, 'company_twitter') > -1) {
-										echo 'checked="checked"';
-									} ?>
-									value="company_twitter">Twitter Username</label>
+							        type="checkbox"
+							        <?php if(stripos($option, 'company_twitter') > -1) {
+							            echo 'checked="checked"';
+							        } ?>
+							        value="company_twitter">Twitter Username</label>
 					</li>
 				</ul>
 				<input id="ziggeojobmanager_custom_tags" name="ziggeojobmanager[custom_tags]" type="hidden" value="<?php echo $option; ?>">
