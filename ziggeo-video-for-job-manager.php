@@ -4,7 +4,7 @@ Plugin Name: Ziggeo Video for Job Manager
 Plugin URI: https://ziggeo.com/integrations/wordpress/jobmanager
 Description: Add the Powerful Ziggeo video service to your Job Manager plugin. Included support for Resume Manager addon
 Author: Ziggeo
-Version: 1.6
+Version: 1.7
 Author URI: https://ziggeo.com
 */
 
@@ -19,7 +19,7 @@ define('ZIGGEOJOBMANAGER_ROOT_PATH', plugin_dir_path(__FILE__) );
 define('ZIGGEOJOBMANAGER_ROOT_URL', plugins_url('', __FILE__) . '/');
 
 //plugin version - this way other plugins can get it as well and we will be updating this file for each version change as is
-define('ZIGGEOJOBMANAGER_VERSION', '1.6');
+define('ZIGGEOJOBMANAGER_VERSION', '1.7');
 
 if(is_admin()) {
 	include_once(ZIGGEOJOBMANAGER_ROOT_PATH . 'admin/update.php');

@@ -17,7 +17,7 @@ function ziggeojobmanager_p_on_update($options = null) {
 	$defaults = ziggeojobmanager_get_plugin_options_defaults();
 
 	//Are we already up to date?
-	if(isset($options['version']) && ($options['version'] == ZIGGEO_VERSION)) {
+	if(isset($options['version']) && ($options['version'] == ZIGGEOJOBMANAGER_VERSION)) {
 		//All good and up to date, lets just go out of this.
 		return true;
 	}
@@ -41,7 +41,7 @@ function ziggeojobmanager_p_on_update($options = null) {
 
 	//In the end we also update the version
 	//NOTE: This should always be last
-	$options['version'] = ZIGGEO_VERSION;
+	$options['version'] = ZIGGEOJOBMANAGER_VERSION;
 
 	update_option('ziggeojobmanager', $options);
 }

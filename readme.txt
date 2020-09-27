@@ -3,7 +3,7 @@ Contributors: oliverfriedmann, baned, carloscsz409, natashacalleia
 Tags: ziggeo, video, resume manager, job manager, video resumes, video integration
 Requires at least: 3.0.1
 Tested up to: 5.5.1
-Stable tag: 1.5
+Stable tag: 1.7
 Requires PHP: 5.2.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -66,12 +66,15 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 
 == Upgrade Notice ==
 
+= 1.7 =
+* Fix: The update file was using from version info, causing the error to appear for those that do not have Ziggeo Core plugin installed and activated.
+
+== Changelog ==
+
 = 1.6 =
 * Improvement: Using v2 API calls.
 * Improvement: Added a check for submenu creation to know that we have the core plugin present, helping us avoiding errors if it is not.
 * Improvement: Added a check if core plugin is installed and available. Instead of silent continuation if it is not, it will now report that it is missing.
-
-== Changelog ==
 
 = 1.5 =
 * Added support for custom tags based on different form fields.
