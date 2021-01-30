@@ -2,7 +2,7 @@
 Contributors: oliverfriedmann, baned, carloscsz409, natashacalleia
 Tags: ziggeo, video, resume manager, job manager, video resumes, video integration
 Requires at least: 3.0.1
-Tested up to: 5.5.1
+Tested up to: 5.6
 Stable tag: 1.7
 Requires PHP: 5.2.4
 License: GPLv3 or later
