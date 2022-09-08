@@ -2,8 +2,8 @@
 Contributors: oliverfriedmann, baned, carloscsz409, natashacalleia
 Tags: ziggeo, video, resume manager, job manager, video resumes, video integration
 Requires at least: 3.0.1
-Tested up to: 5.8.3
-Stable tag: 1.7
+Tested up to: 6.0.2
+Stable tag: 1.8
 Requires PHP: 5.2.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -66,10 +66,13 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 
 == Upgrade Notice ==
 
-= 1.7 =
-* Fix: The update file was using from version info, causing the error to appear for those that do not have Ziggeo Core plugin installed and activated.
+= 1.8 =
+* Improvement: Added a new feature that combines the two fields (recorder and uploader) and instead shows single embedding only. This allows for better experience on mobile devices while it respects the design decisions you might have had before by keeping it recommended yet turned off by default.
 
 == Changelog ==
+
+= 1.7 =
+* Fix: The update file was using from version info, causing the error to appear for those that do not have Ziggeo Core plugin installed and activated.
 
 = 1.6 =
 * Improvement: Using v2 API calls.

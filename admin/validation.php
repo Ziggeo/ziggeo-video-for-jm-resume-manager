@@ -7,15 +7,17 @@ defined('ABSPATH') or die();
 function ziggeojobmanager_validate($input) {
 
 	$allowed_options = array(
-		'submission_form_video_record'			=> true,
-		'submission_form_video_uploader'		=> true,
-		'design'								=> true,
-		'custom_tags'							=> true,
-		'capture_content'						=> true,
+		'submission_form_video_record'          => true,
+		'submission_form_video_uploader'        => true,
+		'submission_form_video_combined'        => true,
+		'design'                                => true,
+		'custom_tags'                           => true,
+		'capture_content'                       => true,
 		//the Resume Manager addon
-		'submission_form_e_rm_video_record'		=> true,
-		'submission_form_e_rm_video_uploader'	=> true,
-		'submission_form_e_rm_video_link'		=> true
+		'submission_form_e_rm_video_record'     => true,
+		'submission_form_e_rm_video_uploader'   => true,
+		'submission_form_e_rm_video_combined'   => true,
+		'submission_form_e_rm_video_link'       => true
 	);
 
 	$options = ziggeojobmanager_get_plugin_options();

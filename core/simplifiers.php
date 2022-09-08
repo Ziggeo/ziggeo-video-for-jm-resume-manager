@@ -36,15 +36,17 @@ function ziggeojobmanager_get_template($type = 'video-recorder') {
 
 function ziggeojobmanager_get_plugin_options_defaults() {
 	$defaults = array(
-		'version'								=> ZIGGEOJOBMANAGER_VERSION,
-		'submission_form_video_record'			=> '1',
-		'submission_form_video_uploader'		=> '1',
-		'design'								=> 'default',
-		'submission_form_e_rm_video_record'		=> '1',
-		'submission_form_e_rm_video_uploader'	=> '1',
-		'submission_form_e_rm_video_link'		=> '1',
-		'custom_tags'							=> '',
-		'capture_content'						=> 'default'
+		'version'                               => ZIGGEOJOBMANAGER_VERSION,
+		'submission_form_video_record'          => '1',
+		'submission_form_video_uploader'        => '1',
+		'submission_form_video_combined'        => '0',
+		'design'                                => 'default',
+		'submission_form_e_rm_video_record'     => '1',
+		'submission_form_e_rm_video_uploader'   => '1',
+		'submission_form_e_rm_video_combined'   => '0',
+		'submission_form_e_rm_video_link'       => '1',
+		'custom_tags'                           => '',
+		'capture_content'                       => 'default'
 	);
 
 	return $defaults;

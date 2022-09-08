@@ -40,53 +40,62 @@ defined('ABSPATH') or die();
 			// the submission form or just the standard input field
 			add_settings_field('ziggeojobmanager_submit_form_videor_field',
 			                    __('Add Ziggeo recorder on submission form', 'ziggeojobmanager'),
-			                    'ziggeojobmanager_o_submit_form_videor_field',
-			                    'ziggeojobmanager',
-			                    'ziggeojobmanager_section_core');
+			                   'ziggeojobmanager_o_submit_form_videor_field',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_core');
 
 			add_settings_field('ziggeojobmanager_submit_form_videou_field',
-			                    __('Add Ziggeo uploader on submission form', 'ziggeojobmanager'),
-				                    'ziggeojobmanager_o_submit_form_videou_field',
-			                    'ziggeojobmanager',
-			                    'ziggeojobmanager_section_core');
-
+			                   __('Add Ziggeo uploader on submission form', 'ziggeojobmanager'),
+			                   'ziggeojobmanager_o_submit_form_videou_field',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_core');
+			add_settings_field('ziggeojobmanager_submit_form_videocombo_field',
+			                   __('Combine Recorder and uploader together (recommended)'),
+			                   'ziggeojobmanager_o_submit_form_videocombo_field',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_core');
 			add_settings_field('ziggeojobmanager_design_buttons',
-			                    __('The design of the recorder and uploader on submission forms', 'ziggeojobmanager'),
-			                    'ziggeojobmanager_o_design',
-			                    'ziggeojobmanager',
-			                    'ziggeojobmanager_section_core');
+			                   __('The design of the recorder and uploader on submission forms', 'ziggeojobmanager'),
+			                   'ziggeojobmanager_o_design',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_core');
 
 			add_settings_field('ziggeojobmanager_custom_tags_from_fields',
-			                    __('Select what fields to use from form as tags.', 'ziggeojobmanager'),
-			                    'ziggeojobmanager_o_custom_tags',
-			                    'ziggeojobmanager',
-			                    'ziggeojobmanager_section_core');
+			                   __('Select what fields to use from form as tags.', 'ziggeojobmanager'),
+			                   'ziggeojobmanager_o_custom_tags',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_core');
 
 			// The type of data that is captured once the video is recorded
 			add_settings_field('ziggeojobmanager_captured_content',
-			                    __('Choose the data that is saved once video is recorded', 'ziggeojobmanager'),
-			                    'ziggeojobmanager_g_captured_content',
-			                    'ziggeojobmanager',
-			                    'ziggeojobmanager_section_core');
+			                   __('Choose the data that is saved once video is recorded', 'ziggeojobmanager'),
+			                   'ziggeojobmanager_g_captured_content',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_core');
 
 			//Resume Manager
 			add_settings_field('ziggeojobmanager_submit_form_e_rm_videor_field',
-			                    __('Add Ziggeo recorder on Resume submission form', 'ziggeojobmanager'),
-			                    'ziggeojobmanager_o_submit_form_e_rm_videor_field',
-			                    'ziggeojobmanager',
-			                    'ziggeojobmanager_section_e_resumem');
+			                   __('Add Ziggeo recorder on Resume submission form', 'ziggeojobmanager'),
+			                   'ziggeojobmanager_o_submit_form_e_rm_videor_field',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_e_resumem');
 
 			add_settings_field('ziggeojobmanager_submit_form_e_rm_videou_field',
-			                    __('Add Ziggeo uploader on Resume submission form', 'ziggeojobmanager'),
-			                    'ziggeojobmanager_o_submit_form_e_rm_videou_field',
-			                    'ziggeojobmanager',
-			                    'ziggeojobmanager_section_e_resumem');
+			                   __('Add Ziggeo uploader on Resume submission form', 'ziggeojobmanager'),
+			                   'ziggeojobmanager_o_submit_form_e_rm_videou_field',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_e_resumem');
+			add_settings_field('ziggeojobmanager_submit_form_videocombo_field',
+			                   __('Combine Recorder and uploader together (recommended)'),
+			                   'ziggeojobmanager_o_submit_form_e_videocombo_field',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_e_resumem');
 
 			add_settings_field('ziggeojobmanager_submit_form_e_rm_videol_field',
-			                    __('Hide video URL field on Resume submission form', 'ziggeojobmanager'),
-			                    'ziggeojobmanager_o_submit_form_e_rm_videol_field',
-			                    'ziggeojobmanager',
-			                    'ziggeojobmanager_section_e_resumem');
+			                   __('Hide video URL field on Resume submission form', 'ziggeojobmanager'),
+			                   'ziggeojobmanager_o_submit_form_e_rm_videol_field',
+			                   'ziggeojobmanager',
+			                   'ziggeojobmanager_section_e_resumem');
 	});
 
 	add_action('admin_menu', function() {
@@ -159,6 +168,16 @@ defined('ABSPATH') or die();
 				<input id="ziggeojobmanager_submission_form_video_uploader" name="ziggeojobmanager[submission_form_video_uploader]" size="50" type="checkbox" value="1"
 					<?php echo checked( 1, $option, false ); ?> />
 				<label for="ziggeojobmanager_submission_form_video_uploader"><?php _e('When checked your submission form will show upload option in job submission form', 'ziggeojobmanager'); ?></label>
+				<?php
+			}
+
+			function ziggeojobmanager_o_submit_form_videocombo_field() {
+				$option = ziggeojobmanager_get_plugin_options('submission_form_video_combined');
+
+				?>
+				<input id="ziggeojobmanager_submission_form_video_combined" name="ziggeojobmanager[submission_form_video_combined]" size="50" type="checkbox" value="1"
+					<?php echo checked( 1, $option, false ); ?> />
+				<label for="ziggeojobmanager_submission_form_video_combined"><?php _e('Shows single embedding for both recording and uploading (recommended)', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 
@@ -268,6 +287,16 @@ defined('ABSPATH') or die();
 				<input id="ziggeojobmanager_submission_form_e_rm_video_uploader" name="ziggeojobmanager[submission_form_e_rm_video_uploader]" size="50" type="checkbox" value="1"
 					<?php echo checked( 1, $option, false ); ?> />
 				<label for="ziggeojobmanager_submission_form_e_rm_video_uploader"><?php _e('When checked your Resume Manager submission form will show upload option in job submission form', 'ziggeojobmanager'); ?></label>
+				<?php
+			}
+
+			function ziggeojobmanager_o_submit_form_e_videocombo_field() {
+				$option = ziggeojobmanager_get_plugin_options('submission_form_e_rm_video_combined');
+
+				?>
+				<input id="ziggeojobmanager_submission_form_e_rm_video_combined" name="ziggeojobmanager[submission_form_e_rm_video_combined]" size="50" type="checkbox" value="1"
+					<?php echo checked( 1, $option, false ); ?> />
+				<label for="ziggeojobmanager_submission_form_e_rm_video_combined"><?php _e('Shows single embedding for both recording and uploading (recommended)', 'ziggeojobmanager'); ?></label>
 				<?php
 			}
 

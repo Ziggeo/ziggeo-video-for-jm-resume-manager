@@ -119,6 +119,12 @@ defined('ABSPATH') or die();
 
 		$options = ziggeojobmanager_get_plugin_options();
 
+		// To help load the assets if the lazy load option is turned on in Ziggeo WP core plugin
+		add_action('wp_head', function(){
+			define('ZIGGEO_FOUND', true);
+			echo ziggeo_p_assets_maybeload('');
+		});
+
 		//The hook for showing of the video on the front end under jobs listing
 		add_filter('the_company_video_embed', function($video_embed, $post) {
 
