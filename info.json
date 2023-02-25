@@ -1,14 +1,14 @@
 {
 	"wp": {
 		"required": "3.0.1",
-		"tested": "6.0.2",
+		"tested": "6.1.1",
 		"repo_url": "https://wordpress.org/plugins/ziggeo-video-for-job-manager/",
 		"alternative_repo_url": "https://github.com/Ziggeo/ziggeo-video-for-jm-resume-manager"
 	},
 	"plugin": {
 		"name": "ziggeo-video-for-job-manager",
 		"title": "Ziggeo Video for Job Manager",
-		"version": "1.8",
+		"version": "1.9",
 		"author": "Ziggeo",
 		"logo": "https://raw.githubusercontent.com/Ziggeo/ziggeo-video-for-jm-resume-manager/master/assets/images/logo.png",
 		"contributors": "oliverfriedmann, baned, carloscsz409",

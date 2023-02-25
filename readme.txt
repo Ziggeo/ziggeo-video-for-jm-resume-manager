@@ -2,8 +2,8 @@
 Contributors: oliverfriedmann, baned, carloscsz409, natashacalleia
 Tags: ziggeo, video, resume manager, job manager, video resumes, video integration
 Requires at least: 3.0.1
-Tested up to: 6.0.2
-Stable tag: 1.8
+Tested up to: 6.1.1
+Stable tag: 1.9
 Requires PHP: 5.2.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -27,8 +27,10 @@ If any of the above was yes, you want this plugin!
 1. Job Manager - Submit Job [Form]
 2. Job Manager - Submit Job [Preview before submission]
 3. Job Manager - Submit Job [Listing]
-4. Job Manager's Resume Manager addon [Form]
-5. Job Manager's Resume Manager addon [Preview]
+4. Resume Manager addon [Form]
+5. Resume Manager addon [Preview]
+6. Admin Options for Job Manager
+7. Admin Options for Resume Manager
 
 
 == Installation ==
@@ -66,10 +68,13 @@ Please go to our [WordPress forum](https://support.ziggeo.com/hc/en-us/community
 
 == Upgrade Notice ==
 
-= 1.8 =
-* Improvement: Added a new feature that combines the two fields (recorder and uploader) and instead shows single embedding only. This allows for better experience on mobile devices while it respects the design decisions you might have had before by keeping it recommended yet turned off by default.
+= 1.9 =
+* Improvement: Updated to support lazyload feature of Ziggeo core plugin
 
 == Changelog ==
+
+= 1.8 =
+* Improvement: Added a new feature that combines the two fields (recorder and uploader) and instead shows single embedding only. This allows for better experience on mobile devices while it respects the design decisions you might have had before by keeping it recommended yet turned off by default.
 
 = 1.7 =
 * Fix: The update file was using from version info, causing the error to appear for those that do not have Ziggeo Core plugin installed and activated.

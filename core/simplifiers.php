@@ -63,6 +63,9 @@ function ziggeojobmanager_get_plugin_options($specific = null) {
 		// the defaults need to be applied
 		$options = $defaults;
 	}
+	else {
+		$options = array_merge($defaults, $options);
+	}
 
 	// In case we are after a specific one.
 	if($specific !== null) {

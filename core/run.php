@@ -120,8 +120,11 @@ defined('ABSPATH') or die();
 		$options = ziggeojobmanager_get_plugin_options();
 
 		// To help load the assets if the lazy load option is turned on in Ziggeo WP core plugin
-		add_action('wp_head', function(){
-			define('ZIGGEO_FOUND', true);
+		add_action('wp_head', function() {
+			if(!defined('ZIGGEO_FOUND')) {
+				define('ZIGGEO_FOUND', true);
+			}
+
 			echo ziggeo_p_assets_maybeload('');
 		});
 
